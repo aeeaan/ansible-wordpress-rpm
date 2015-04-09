@@ -1,2 +1,3 @@
 ---
-# tasks file for wordpress
+- name: configure wordpress
+  template: src=wp-config.php.j2 dest="{{ wordpress_home }}/shared/wp-config.php" mode=0644 owner={{ wordpress_user }} group={{ wordpress_user }}

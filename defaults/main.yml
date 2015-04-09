@@ -1,2 +1,30 @@
 ---
-# defaults file for wordpress
+wordpress_version: 4.1.1
+wordpress_home: /var/www/wordpress
+wordpress_user: wordpress
+wordpress_create_user: true
+
+wordpress_download_base: https://wordpress.org/
+wordpress_base_name: "wordpress-{{ wordpress_version }}"
+wordpress_extracted_name: wordpress
+wordpress_archive: "{{ wordpress_base_name }}.tar.gz"
+wordpress_download_url: "{{ wordpress_download_base }}{{ wordpress_archive }}"
+
+wordpress_shared_links:
+  - wp-content/uploads
+
+wordpress_db_name: wordpress
+wordpress_db_user: wordpress
+wordpress_db_password: wordpress
+wordpress_db_host: localhost
+wordpress_db_charset: utf8
+wordpress_db_collate: ''
+
+wordpress_auth_key: ''
+wordpress_secure_auth_key: ''
+wordpress_logged_in_key: ''
+wordpress_nonce_key: ''
+wordpress_auth_salt: ''
+wordpress_secure_auth_salt: ''
+wordpress_logged_in_salt: ''
+wordpress_nonce_salt: ''
