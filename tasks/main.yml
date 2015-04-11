@@ -1,3 +1,9 @@
 ---
+- name: create wordpress db
+  mysql_db: name=wordpress state=present encoding=utf8 login_host={{ mysql_host|default(omit) }} login_port={{ mysql_port|default(omit) }} login_user={{ mysql_root_user|default(omit) }} login_password={{ mysql_root_password|default(omit) }}
+
+- name: create wordpress db user
+  mysql_user: name={{ wordpress_db_user }} host="%" password={{ wordpress_db_password }} priv={{ wordpress_db_name }}.*:ALL login_host={{ mysql_host|default(omit) }} login_port={{ mysql_port|default(omit) }} login_user={{ mysql_root_user|default(omit) }} login_password={{ mysql_root_password|default(omit) }}
+
 - name: configure wordpress
   template: src=wp-config.php.j2 dest="{{ wordpress_home }}/shared/wp-config.php" mode=0644 owner={{ wordpress_user }} group={{ wordpress_user }}
