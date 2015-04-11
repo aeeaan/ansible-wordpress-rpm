@@ -11,6 +11,7 @@ wordpress_archive: "{{ wordpress_base_name }}.tar.gz"
 wordpress_download_url: "{{ wordpress_download_base }}{{ wordpress_archive }}"
 
 wordpress_shared_links:
+  - wp-config.php
   - wp-content/uploads
 
 wordpress_db_name: wordpress
