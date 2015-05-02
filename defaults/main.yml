@@ -29,3 +29,5 @@ wordpress_auth_salt: ''
 wordpress_secure_auth_salt: ''
 wordpress_logged_in_salt: ''
 wordpress_nonce_salt: ''
+
+wordpress_cache: true
