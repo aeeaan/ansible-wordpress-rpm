@@ -11,3 +11,6 @@
 - name: configure httpd for wordpress
   template: src=wordpress.conf.j2 dest="/etc/httpd/conf.d/wordpress.conf" mode=0644 owner=root group=root
   notify: restart httpd
+
+- name: configure wordpress htaccess
+  template: src=htaccess.j2 dest="{{ wordpress_home }}/shared/.htaccess" mode=0644 owner={{ wordpress_user }} group={{ wordpress_user }}

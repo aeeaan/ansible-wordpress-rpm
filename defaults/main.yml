@@ -11,8 +11,11 @@ wordpress_archive: "{{ wordpress_base_name }}.tar.gz"
 wordpress_download_url: "{{ wordpress_download_base }}{{ wordpress_archive }}"
 
 wordpress_shared_links:
+  - .htaccess
   - wp-config.php
   - wp-content/uploads
+  - wp-content/cache
+  - wp-content/w3tc-config
 
 wordpress_db_name: wordpress
 wordpress_db_user: wordpress
@@ -31,3 +34,4 @@ wordpress_logged_in_salt: ''
 wordpress_nonce_salt: ''
 
 wordpress_cache: true
+wordpress_permalinks: true
