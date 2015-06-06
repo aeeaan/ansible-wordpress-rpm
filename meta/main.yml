@@ -4,27 +4,14 @@ galaxy_info:
   description: 
   company:
   license: MIT
-  min_ansible_version: 1.2
+  min_ansible_version: 1.9.1
   platforms:
   - name: EL
     versions:
     - 7
-  #categories:
-  #- cloud
-  #- cloud:ec2
-  #- cloud:gce
-  #- cloud:rax
-  #- clustering
-  #- database
-  #- database:nosql
-  #- database:sql
-  #- development
-  #- monitoring
-  #- networking
-  #- packaging
-  #- system
-  #- web
+  categories:
+  - web
 dependencies:
-  - { role: app, app_home: "{{ wordpress_home }}", app_user: "{{ wordpress_user }}", app_download_url: "{{ wordpress_download_url }}", app_base_name: "{{ wordpress_base_name }}", app_extracted_name: "{{ wordpress_extracted_name }}", app_archive: "{{ wordpress_archive }}" , app_shared_links: "{{ wordpress_shared_links }}" }
+  - { role: correcthorse.app, app_home: "{{ wordpress_home }}", app_user: "{{ wordpress_user }}", app_download_url: "{{ wordpress_download_url }}", app_base_name: "{{ wordpress_base_name }}", app_extracted_name: "{{ wordpress_extracted_name }}", app_archive: "{{ wordpress_archive }}" , app_shared_links: "{{ wordpress_shared_links }}" }
 
   

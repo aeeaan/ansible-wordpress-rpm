@@ -1,22 +1,56 @@
-Role Name
+correcthorse.wordpress
 =========
 
-A brief description of the role goes here.
-
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+An ansible role for installing wordpress. This role is currently incomplete and very experimental. I may start from scratch using wp-cli to manage the installation.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+| Variable				| Default							| Notes		 |
+| :---					| :---								| :---		 |
+| wordpress_version			| 4.1.1								|		 |
+| wordpress_home			| /var/www/wordpress						|		 |
+| wordpress_user			| wordpress							|		 |
+| wordpress_create_user			| true								|		 |
+| wordpress_download_base		| https://wordpress.org/					|		 |
+| wordpress_base_name			| "wordpress-{{ wordpress_version }}"				|		 |
+| wordpress_extracted_name		| wordpress			  				|		 |
+| wordpress_archive			| "{{ wordpress_base_name }}.tar.gz"			 	|		 |
+| wordpress_download_url		| "{{ wordpress_download_base }}{{ wordpress_archive }}" 	|		 |
+| wordpress_db_name			| wordpress		      	   		     		|		 |
+| wordpress_db_user			| wordpress							|		 |
+| wordpress_db_password			| wordpress							|		 |
+| wordpress_db_host			| localhost							|		 |
+| wordpress_db_charset			| utf8								|		 |
+| wordpress_db_collate			| ''								|		 |
+| wordpress_auth_key			| ''								|		 |
+| wordpress_secure_auth_key		| ''								|		 |
+| wordpress_logged_in_key		| ''								|		 |
+| wordpress_nonce_key			| ''								|		 |
+| wordpress_auth_salt			| ''								|		 |
+| wordpress_secure_auth_salt		| ''								|		 |
+| wordpress_logged_in_salt		| ''								|		 |
+| wordpress_nonce_salt			| ''								|		 |
+| wordpress_cache			| true								|		 |
+| wordpress_permalinks			| true								|		 |
+
+
+List of files to keep outside the application that shouldn't change with upgrades. Symlinks are created to these files inside the application.
+
+    wordpress_shared_links:
+      - .htaccess
+      - wp-config.php
+      - wp-content/uploads
+      - wp-content/cache
+      - wp-content/w3tc-config
+
+
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+correcthorse.php
+correcthorse.app
 
 Example Playbook
 ----------------
@@ -25,7 +59,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: correcthorse.wordpress }
 
 License
 -------
@@ -35,4 +69,4 @@ MIT
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+* [Joshua Rusch](https://correct.horse/)
